@@ -1,0 +1,36 @@
+<%- js('js/main.js') %>
+
+<% if (is_post() && page.plugins != undefined && page.plugins.includes("tooltip") ){ %>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            if (typeof (tippy) !== 'undefined') {
+                document.querySelectorAll("a[data-tooltip]").forEach(function (x) {
+                    let content = x.getAttribute('data-tooltip');
+                    tippy(x, {content: content});
+                });
+            }
+        });
+    </script>
+<% } %>
+
+<% if (is_post() && page.plugins != undefined && page.plugins.includes("katex") ){ %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" crossorigin="anonymous"></script>
+    <script>
+        document.querySelectorAll('code').forEach(function (el) {
+            const text = el.textContent;
+            if (text.startsWith('KaTeX:') || el.classList.contains("language-KaTeX")) {
+                // Do stuff if text starts with `latex`
+                const renderedKatex = katex.renderToString(
+                    text.replace('KaTeX:', ''),
+                    { throwOnError: false }
+                );
+                // Populate katex and additional markup for formatting
+                el.outerHTML = `<span class="katex-wrap">${renderedKatex}</span>`;
+            }
+
+        })
+    </script>
+<% } %>
