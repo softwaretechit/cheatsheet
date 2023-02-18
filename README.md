@@ -14,7 +14,7 @@ We encourage you to share your own cheat sheets with the community and make Refe
 
 ## 👀 Live Demonstration
 
-You can view the cheat sheets live at https://quickref.me
+You can view the cheat sheets live at https://cheatsheet.softwaretechit.com/
 
 [![Quick reference](https://cheatsheet.softwaretechit.com/assets/image/preview.png)](https://cheatsheet.softwaretechit.com/)
 
